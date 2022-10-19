@@ -576,7 +576,7 @@ class _CalendarState<T extends EventInterface>
         DateTime(_dates[slideIndex].year, _dates[slideIndex].month + 1, 1)
                 .weekday -
             firstDayOfWeek;
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = widget.width; // MediaQuery.of(context).size.width;
     int totalItemCount = widget.staticSixWeekFormat
         ? 42
         : DateTime(
@@ -697,7 +697,7 @@ class _CalendarState<T extends EventInterface>
   }
 
   AnimatedBuilder weekBuilder(int slideIndex) {
-    double screenWidth = widget.width; // MediaQuery.of(context).size.width;
+    double screenWidth = widget.width; //  MediaQuery.of(context).size.width;
     List<DateTime> weekDays = _weeks[slideIndex];
 
     weekDays = weekDays
