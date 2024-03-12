@@ -19,18 +19,21 @@ class Event implements EventInterface {
   });
 
   @override
-  bool operator ==(dynamic other) {
-    return this.date == other.date &&
-        this.title == other.title &&
-        this.description == other.description &&
-        this.location == other.location &&
-        this.icon == other.icon &&
-        this.dot == other.dot &&
-        this.id == other.id;
+  bool operator ==(Object other) {
+    if (other is Event) {
+      return this.date == other.date &&
+          this.title == other.title &&
+          this.description == other.description &&
+          this.location == other.location &&
+          this.icon == other.icon &&
+          this.dot == other.dot &&
+          this.id == other.id;
+    }
+    return false;
   }
 
   @override
-  int get hashCode => hashValues(date, description, location, title, icon, id);
+  int get hashCode => Object.hash(date, description, location, title, icon, id);
 
   @override
   DateTime getDate() {

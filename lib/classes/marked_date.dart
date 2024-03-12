@@ -14,11 +14,14 @@ class MarkedDate implements MarkedDateInterface {
   });
 
   @override
-  bool operator ==(dynamic other) {
-    return this.date == other.date &&
-        this.color == other.color &&
-        this.textStyle == other.textStyle &&
-        this.id == other.id;
+  bool operator ==(Object other) {
+    if (other is MarkedDate) {
+      return this.date == other.date &&
+          this.color == other.color &&
+          this.textStyle == other.textStyle &&
+          this.id == other.id;
+    }
+    return false;
   }
 
   @override
